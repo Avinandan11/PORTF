@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary Meta Tags -->
+  <title>Avinandan Biswas | CSE AI & ML Student | Developer Portfolio</title>
+  <meta name="title" content="Avinandan Biswas | CSE AI & ML Student">
+  <meta name="description" content="Portfolio of Avinandan Biswas, a B.Tech CSE Artificial Intelligence & Machine Learning student at JECRC University, Jaipur. Explore my projects, skills, education, and learning journey.">
+  <meta name="keywords" content="Avinandan Biswas, B.Tech CSE, AI ML Student, JECRC University, Jaipur, Kolkata, Web Developer, Python, Machine Learning, Portfolio">
+  <meta name="author" content="Avinandan Biswas">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#090d16">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://avinandanbiswas.github.io/">
+  <meta property="og:title" content="Avinandan Biswas | CSE AI & ML Student Portfolio">
+  <meta property="og:description" content="First-year B.Tech CSE AI & ML student at JECRC University, Jaipur. Passionate about programming, machine learning, and building software solutions.">
+  <meta property="og:image" content="assets/og-image.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="Avinandan Biswas | CSE AI & ML Student Portfolio">
+  <meta property="twitter:description" content="First-year B.Tech CSE AI & ML student at JECRC University, Jaipur. Passionate about programming, machine learning, and building software solutions.">
+
+  <!-- Favicon (SVG Data URI) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%23090d16'/><text x='50%' y='55%' dominant-baseline='central' text-anchor='middle' fill='%2306b6d4' font-family='sans-serif' font-weight='800' font-size='42'>AB.</text></svg>">
+
+  <!-- Google Fonts: Inter & Space Grotesk -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Neural Network Background Canvas -->
+  <canvas id="neuralCanvas" aria-hidden="true"></canvas>
+
+  <!-- Toast Notification Container -->
+  <div id="toastContainer" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Resume Information Modal -->
+  <div id="resumeModal" class="modal-backdrop" aria-hidden="true" role="dialog" aria-labelledby="modalTitle">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-icon-badge">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </div>
+        <h3 id="modalTitle" class="modal-title">Resume Note</h3>
+        <button id="closeModalBtn" class="modal-close-btn" aria-label="Close modal">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>I am currently a first-year student preparing an updated academic and project resume.</p>
+        <div class="modal-instructions">
+          <span class="file-tag">assets/Avinandan_Biswas_Resume.pdf</span>
+          <p class="sub-text">Once placed in the assets directory, this button will immediately download the PDF file.</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="modalGotItBtn" class="btn btn-primary btn-sm">Understood</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <header id="header" class="site-header">
+    <div class="container nav-container">
+      <a href="#hero" class="logo" aria-label="Avinandan Biswas Home">
+        <span class="logo-accent">AB</span><span class="logo-dot">.</span>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav id="navMenu" class="nav-menu" aria-label="Main Navigation">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="#hero" class="nav-link active">Home</a></li>
+          <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
+          <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
+          <li class="nav-item"><a href="#education" class="nav-link">Education</a></li>
+          <li class="nav-item"><a href="#certifications" class="nav-link">Certifications</a></li>
+          <li class="nav-item"><a href="#achievements" class="nav-link">Achievements</a></li>
+          <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Action Buttons: Theme Toggle & Let's Connect CTA -->
+      <div class="nav-actions">
+        <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle dark and light theme" title="Toggle theme">
+          <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+
+        <a href="#contact" class="btn btn-outline nav-cta">Let's Connect</a>
+
+        <!-- Mobile Hamburger Button -->
+        <button id="hamburgerBtn" class="hamburger-btn" aria-label="Open mobile menu" aria-expanded="false" aria-controls="navMenu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="mainContent">
+    <!-- HERO SECTION -->
+    <section id="hero" class="hero-section">
+      <div class="container hero-container">
+        <div class="hero-content">
+          <!-- Small Badge -->
+          <div class="badge-pill hero-badge animate-fade-in">
+            <span class="status-pulse"></span>
+            <span class="badge-text">B.Tech CSE • AI &amp; ML Student</span>
+          </div>
+
+          <!-- Main Heading -->
+          <h1 class="hero-title animate-fade-in delay-1">
+            Hi, I'm <span class="gradient-text">Avinandan Biswas</span>.
+          </h1>
+
+          <!-- Animated Subheading / Role -->
+          <div class="hero-subtitle-wrapper animate-fade-in delay-2">
+            <span id="roleTypewriter" class="hero-subtitle">Aspiring AI/ML Developer &amp; Software Engineer</span>
+            <span class="typewriter-cursor">|</span>
+          </div>
+
+          <!-- Supporting Text -->
+          <p class="hero-description animate-fade-in delay-3">
+            First-year B.Tech CSE AI &amp; ML student at <strong>JECRC University, Jaipur</strong>, passionate about programming, artificial intelligence, machine learning, and building technology that solves real-world problems.
+          </p>
+
+          <!-- Action Buttons -->
+          <div class="hero-cta-group animate-fade-in delay-4">
+            <a href="#projects" class="btn btn-primary">
+              <span>View My Projects</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+            
+            <button id="downloadResumeBtn" class="btn btn-secondary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span>Download Resume</span>
+            </button>
+
+            <a href="#contact" class="link-arrow">
+              <span>Let's Connect</span>
+              <span class="arrow">&rarr;</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Side: Futuristic AI Developer Terminal -->
+        <div class="hero-visual animate-fade-in delay-2">
+          <div class="terminal-wrapper glass-card">
+            <div class="terminal-header">
+              <div class="terminal-dots">
+                <span class="dot dot-red"></span>
+                <span class="dot dot-yellow"></span>
+                <span class="dot dot-green"></span>
+              </div>
+              <div class="terminal-title">avinandan@ai-workspace: ~</div>
+              <div class="terminal-actions">
+                <span class="terminal-badge">B.Tech 2026</span>
+              </div>
+            </div>
+
+            <div class="terminal-body">
+              <div class="terminal-line">
+                <span class="terminal-prompt">$</span>
+                <span class="terminal-command">whoami</span>
+              </div>
+              <div class="terminal-output highlight-green">Avinandan Biswas</div>
+
+              <div class="terminal-line">
+                <span class="terminal-prompt">$</span>
+                <span class="terminal-command">role</span>
+              </div>
+              <div class="terminal-output highlight-cyan">CSE AI &amp; ML Student</div>
+
+              <div class="terminal-line">
+                <span class="terminal-prompt">$</span>
+                <span class="terminal-command">location</span>
+              </div>
+              <div class="terminal-output">Jaipur, India <span class="muted-output">(Hometown: Kolkata)</span></div>
+
+              <div class="terminal-line">
+                <span class="terminal-prompt">$</span>
+                <span class="terminal-command">university</span>
+              </div>
+              <div class="terminal-output">JECRC University, Jaipur, Rajasthan</div>
+
+              <div class="terminal-line">
+                <span class="terminal-prompt">$</span>
+                <span class="terminal-command">status</span>
+              </div>
+              <div class="terminal-output highlight-purple">
+                <span class="badge-status-dot"></span> Learning • Building • Exploring
+              </div>
+
+              <div class="terminal-line terminal-input-line">
+                <span class="terminal-prompt">$</span>
+                <span class="terminal-active-input">python3 -m train_foundations</span>
+                <span class="terminal-cursor">_</span>
+              </div>
+            </div>
+
+            <div class="terminal-footer">
+              <div class="terminal-metric">
+                <span class="metric-label">Neural Engine:</span>
+                <span class="metric-value">Active (60 FPS)</span>
+              </div>
+              <div class="terminal-metric">
+                <span class="metric-label">Focus:</span>
+                <span class="metric-value">Algorithms &amp; AI</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Stats Bar -->
+      <div class="container hero-stats-container">
+        <div class="stats-grid">
+          <div class="stat-card glass-card">
+            <div class="stat-number">01</div>
+            <div class="stat-label">Year of B.Tech</div>
+            <div class="stat-sub">CSE Department</div>
+          </div>
+          <div class="stat-card glass-card">
+            <div class="stat-number gradient-text">AI &amp; ML</div>
+            <div class="stat-label">Specialization</div>
+            <div class="stat-sub">Artificial Intelligence</div>
+          </div>
+          <div class="stat-card glass-card">
+            <div class="stat-number">JECRC</div>
+            <div class="stat-label">University</div>
+            <div class="stat-sub">Engineering Campus</div>
+          </div>
+          <div class="stat-card glass-card">
+            <div class="stat-number">Jaipur</div>
+            <div class="stat-label">Current City</div>
+            <div class="stat-sub">Rajasthan, India</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT ME SECTION -->
+    <section id="about" class="section about-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Get To Know Me</span>
+          <h2 class="section-title">About Me</h2>
+          <div class="section-divider"></div>
+        </div>
+
+        <div class="about-grid">
+          <!-- Text Content -->
+          <div class="about-content glass-card">
+            <h3 class="about-heading">
+              Passionate about coding, AI algorithms, and turning ideas into software.
+            </h3>
+            
+            <p class="about-text">
+              I am <strong>Avinandan Biswas</strong>, a first-year B.Tech Computer Science Engineering student specializing in Artificial Intelligence and Machine Learning at JECRC University, Jaipur.
+            </p>
+            <p class="about-text">
+              I am currently focused on developing a strong foundation in programming, computer science fundamentals, mathematics, artificial intelligence, machine learning, and web development.
+            </p>
+            <p class="about-text">
+              I enjoy learning by building projects rather than only studying theory. My goal is to gradually develop into a skilled software engineer and AI/ML developer capable of creating useful, practical, and innovative solutions.
+            </p>
+
+            <div class="about-highlights">
+              <div class="highlight-item">
+                <div class="highlight-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                </div>
+                <div>
+                  <div class="highlight-title">Current Degree</div>
+                  <div class="highlight-desc">B.Tech CSE (AI &amp; ML), First Year</div>
+                </div>
+              </div>
+              <div class="highlight-item">
+                <div class="highlight-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <div>
+                  <div class="highlight-title">Hometown &amp; College</div>
+                  <div class="highlight-desc">Kolkata (Roots) &rarr; Jaipur (Campus)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- AI Learner Visual Card & Currently Learning -->
+          <div class="about-visual-column">
+            <div class="ai-learner-card glass-card">
+              <div class="learner-header">
+                <div class="learner-status">
+                  <span class="pulse-dot"></span>
+                  <span>Active Learner Mode</span>
+                </div>
+                <span class="learner-tag">First-Year Journey</span>
+              </div>
+              
+              <div class="learner-body">
+                <div class="learner-quote">
+                  "Building reliable foundations today to architect intelligent systems tomorrow."
+                </div>
+
+                <div class="learner-core-box">
+                  <div class="core-item">
+                    <span class="core-label">Core Interest</span>
+                    <span class="core-val">Machine Learning &amp; Algorithmic Logic</span>
+                  </div>
+                  <div class="core-item">
+                    <span class="core-label">Methodology</span>
+                    <span class="core-val">Project-Based Practical Exploration</span>
+                  </div>
+                  <div class="core-item">
+                    <span class="core-label">Philosophy</span>
+                    <span class="core-val">Code &bull; Learn &bull; Refactor &bull; Grow</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="learning-tags-section">
+                <h4 class="learning-tags-title">Currently Learning</h4>
+                <div class="tags-cloud">
+                  <span class="tag-chip"><span class="chip-dot"></span>Python</span>
+                  <span class="tag-chip"><span class="chip-dot"></span>C / C++</span>
+                  <span class="tag-chip"><span class="chip-dot"></span>Java</span>
+                  <span class="tag-chip"><span class="chip-dot"></span>Data Structures &amp; Algorithms</span>
+                  <span class="tag-chip"><span class="chip-dot"></span>HTML5</span>
+                  <span class="tag-chip"><span class="chip-dot"></span>CSS3</span>
+                  <span class="tag-chip"><span class="chip-dot"></span>JavaScript</span>
+                  <span class="tag-chip"><span class="chip-dot"></span>Artificial Intelligence</span>
+                  <span class="tag-chip"><span class="chip-dot"></span>Machine Learning</span>
+                  <span class="tag-chip"><span class="chip-dot"></span>Git &amp; GitHub</span>
+                  <span class="tag-chip"><span class="chip-dot"></span>Computer Fundamentals</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TECHNICAL SKILLS SECTION -->
+    <section id="skills" class="section skills-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Capabilities &amp; Foundations</span>
+          <h2 class="section-title">Technical Skills</h2>
+          <p class="section-subtitle">
+            Categorized skills with realistic proficiency levels reflecting my first-year engineering journey.
+          </p>
+          <div class="section-divider"></div>
+        </div>
+
+        <div class="skills-categories-grid">
+          <!-- Category 1: Programming -->
+          <div class="skill-category-card glass-card">
+            <div class="category-header">
+              <div class="cat-icon cat-prog">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              </div>
+              <h3 class="category-name">Programming</h3>
+            </div>
+            <div class="skill-items-list">
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Python</span>
+                  <span class="prof-badge prof-developing">Developing</span>
+                </div>
+                <div class="skill-desc">Syntax, object-oriented concepts, and basic scripting</div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">C</span>
+                  <span class="prof-badge prof-developing">Developing</span>
+                </div>
+                <div class="skill-desc">Structured programming, memory concepts &amp; control flow</div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">C++</span>
+                  <span class="prof-badge prof-beginner">Beginner</span>
+                </div>
+                <div class="skill-desc">Object-oriented programming, standard template library basics</div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Java</span>
+                  <span class="prof-badge prof-learning">Learning</span>
+                </div>
+                <div class="skill-desc">Class design, JVM fundamentals &amp; basic OOP</div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">JavaScript</span>
+                  <span class="prof-badge prof-developing">Developing</span>
+                </div>
+                <div class="skill-desc">DOM manipulation, ES6 features, event handling &amp; logic</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Category 2: Web Development -->
+          <div class="skill-category-card glass-card">
+            <div class="category-header">
+              <div class="cat-icon cat-web">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              </div>
+              <h3 class="category-name">Web Development</h3>
+            </div>
+            <div class="skill-items-list">
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">HTML5</span>
+                  <span class="prof-badge prof-developing">Developing</span>
+                </div>
+                <div class="skill-desc">Semantic elements, clean markup &amp; accessibility basics</div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">CSS3</span>
+                  <span class="prof-badge prof-developing">Developing</span>
+                </div>
+                <div class="skill-desc">Flexbox, CSS Grid, custom properties &amp; keyframe animations</div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">JavaScript (Vanilla)</span>
+                  <span class="prof-badge prof-developing">Developing</span>
+                </div>
+                <div class="skill-desc">Clean client-side logic, responsive interactions &amp; APIs</div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Responsive Web Design</span>
+                  <span class="prof-badge prof-developing">Developing</span>
+                </div>
+                <div class="skill-desc">Mobile-first fluid layouts, media queries &amp; UX consistency</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Category 3: AI & Machine Learning -->
+          <div class="skill-category-card glass-card">
+            <div class="category-header">
+              <div class="cat-icon cat-ai">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a8 8 0 0 0-8 8c0 3.3 2 6.2 5 7.4V20a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-2.6c3-1.2 5-4.1 5-7.4a8 8 0 0 0-8-8z"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+              </div>
+              <h3 class="category-name">AI &amp; Machine Learning</h3>
+            </div>
+            <div class="skill-items-list">
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Python for AI/ML</span>
+                  <span class="prof-badge prof-beginner">Beginner</span>
+                </div>
+                <div class="skill-desc">Data processing logic &amp; mathematical foundations</div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Machine Learning Fundamentals</span>
+                  <span class="prof-badge prof-learning">Learning</span>
+                </div>
+                <div class="skill-desc">Supervised vs. unsupervised concepts, regression basics</div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Data Analysis Fundamentals</span>
+                  <span class="prof-badge prof-learning">Learning</span>
+                </div>
+                <div class="skill-desc">Data cleaning logic, statistics principles &amp; visualization</div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Artificial Intelligence Concepts</span>
+                  <span class="prof-badge prof-learning">Learning</span>
+                </div>
+                <div class="skill-desc">Search algorithms, neural networks intuition &amp; agent logic</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Category 4: Computer Science -->
+          <div class="skill-category-card glass-card">
+            <div class="category-header">
+              <div class="cat-icon cat-cs">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              </div>
+              <h3 class="category-name">Computer Science</h3>
+            </div>
+            <div class="skill-items-list">
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Programming Fundamentals</span>
+                  <span class="prof-badge prof-developing">Developing</span>
+                </div>
+                <div class="skill-desc">Variables, control structures, loops &amp; recursion logic</div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Object-Oriented Programming</span>
+                  <span class="prof-badge prof-beginner">Beginner</span>
+                </div>
+                <div class="skill-desc">Classes, encapsulation, abstraction &amp; inheritance</div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Data Structures &amp; Algorithms</span>
+                  <span class="prof-badge prof-learning">Learning</span>
+                </div>
+                <div class="skill-desc">Arrays, strings, searching, sorting &amp; time complexity</div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Computer Fundamentals</span>
+                  <span class="prof-badge prof-developing">Developing</span>
+                </div>
+                <div class="skill-desc">Architecture basics, OS concepts &amp; digital logic</div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Problem Solving</span>
+                  <span class="prof-badge prof-developing">Developing</span>
+                </div>
+                <div class="skill-desc">Analytical decomposition &amp; code implementation</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Category 5: Tools & Environment -->
+          <div class="skill-category-card glass-card">
+            <div class="category-header">
+              <div class="cat-icon cat-tools">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+              </div>
+              <h3 class="category-name">Developer Tools</h3>
+            </div>
+            <div class="skill-items-list">
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Git</span>
+                  <span class="prof-badge prof-beginner">Beginner</span>
+                </div>
+                <div class="skill-desc">Version control, commit workflows, branches &amp; staging</div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">GitHub</span>
+                  <span class="prof-badge prof-beginner">Beginner</span>
+                </div>
+                <div class="skill-desc">Repository management, code hosting &amp; README documentation</div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">VS Code</span>
+                  <span class="prof-badge prof-developing">Developing</span>
+                </div>
+                <div class="skill-desc">Extensions, shortcuts, terminal &amp; debugging environment</div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Antigravity IDE</span>
+                  <span class="prof-badge prof-developing">Developing</span>
+                </div>
+                <div class="skill-desc">Agentic workflows, modern AI pair programming workspace</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LEARNING JOURNEY SECTION -->
+    <section id="journey" class="section journey-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Progression &amp; Roadmap</span>
+          <h2 class="section-title">My Learning Journey</h2>
+          <p class="section-subtitle">A transparent view of where I started, what I'm building now, and where I aim to go.</p>
+          <div class="section-divider"></div>
+        </div>
+
+        <div class="timeline-container">
+          <!-- Timeline Item 1 -->
+          <div class="timeline-item glass-card">
+            <div class="timeline-marker">
+              <div class="marker-circle">01</div>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-meta">
+                <span class="timeline-year">2026</span>
+                <span class="timeline-tag">Undergraduate Inception</span>
+              </div>
+              <h3 class="timeline-title">B.Tech Begins</h3>
+              <p class="timeline-text">
+                Started B.Tech in Computer Science Engineering with Artificial Intelligence &amp; Machine Learning at <strong>JECRC University, Jaipur</strong>. Transitioned from school in Kolkata to undergraduate studies in Rajasthan.
+              </p>
+            </div>
+          </div>
+
+          <!-- Timeline Item 2 -->
+          <div class="timeline-item glass-card active-timeline">
+            <div class="timeline-marker">
+              <div class="marker-circle">02</div>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-meta">
+                <span class="timeline-year highlight-green">Present</span>
+                <span class="timeline-tag current-focus-tag">Active State</span>
+              </div>
+              <h3 class="timeline-title">Current Focus</h3>
+              <p class="timeline-text">
+                Building programming fundamentals (Python, C/C++, Java), web development skills (HTML, CSS, JavaScript), and gaining a deep conceptual understanding of artificial intelligence and machine learning principles.
+              </p>
+            </div>
+          </div>
+
+          <!-- Timeline Item 3 -->
+          <div class="timeline-item glass-card">
+            <div class="timeline-marker">
+              <div class="marker-circle">03</div>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-meta">
+                <span class="timeline-year">Next Milestone</span>
+                <span class="timeline-tag">Growth Phase</span>
+              </div>
+              <h3 class="timeline-title">Next Goals</h3>
+              <p class="timeline-text">
+                Learn Data Structures &amp; Algorithms thoroughly, Python for Machine Learning, relational databases, Git/GitHub collaborative workflows, and build increasingly complex projects.
+              </p>
+            </div>
+          </div>
+
+          <!-- Timeline Item 4 -->
+          <div class="timeline-item glass-card">
+            <div class="timeline-marker">
+              <div class="marker-circle">04</div>
+            </div>
+            <div class="timeline-content">
+              <div class="timeline-meta">
+                <span class="timeline-year">Horizon</span>
+                <span class="timeline-tag">Vision</span>
+              </div>
+              <h3 class="timeline-title">Long-Term Goal</h3>
+              <p class="timeline-text">
+                Become a strong software engineer and AI/ML developer with the ability to build meaningful real-world applications that create tangible positive impact.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="section projects-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Practical Implementations</span>
+          <h2 class="section-title">Featured Projects</h2>
+          <p class="section-subtitle">
+            Authentic projects and practical experiments created during my learning journey.
+          </p>
+          <div class="section-divider"></div>
+        </div>
+
+        <!-- Projects Filter Tabs -->
+        <div class="filter-wrapper">
+          <div class="filter-tabs" role="tablist" aria-label="Project Categories">
+            <button class="filter-tab active" data-filter="all" role="tab" aria-selected="true">All</button>
+            <button class="filter-tab" data-filter="web" role="tab" aria-selected="false">Web</button>
+            <button class="filter-tab" data-filter="javascript" role="tab" aria-selected="false">JavaScript</button>
+            <button class="filter-tab" data-filter="python" role="tab" aria-selected="false">Python</button>
+            <button class="filter-tab" data-filter="ai-ml" role="tab" aria-selected="false">AI/ML</button>
+          </div>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="projects-grid" id="projectsGrid">
+          <!-- Project 01: Personal Portfolio -->
+          <div class="project-card glass-card" data-category="web javascript">
+            <div class="project-card-header">
+              <span class="project-num">01</span>
+              <div class="tech-tags">
+                <span class="tech-tag">HTML5</span>
+                <span class="tech-tag">CSS3</span>
+                <span class="tech-tag">JavaScript</span>
+              </div>
+            </div>
+            <div class="project-card-body">
+              <h3 class="project-title">Personal Portfolio Website</h3>
+              <p class="project-description">
+                A modern, responsive personal portfolio website designed to showcase my skills, projects, education, and learning journey with a clean dark aesthetic.
+              </p>
+              <div class="project-highlights">
+                <span>&bull; Dark &amp; Light Mode Toggle</span>
+                <span>&bull; Interactive Neural Particles</span>
+                <span>&bull; Fluid Responsive Layout</span>
+              </div>
+            </div>
+            <div class="project-card-footer">
+              <a href="#hero" class="btn btn-sm btn-primary project-demo-btn">
+                <span>Live Demo</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+              <a href="https://github.com/YOUR_GITHUB_USERNAME" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-secondary github-link-btn">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                <span>GitHub</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Project 02: Student Information App -->
+          <div class="project-card glass-card" data-category="web javascript">
+            <div class="project-card-header">
+              <span class="project-num">02</span>
+              <div class="tech-tags">
+                <span class="tech-tag">HTML5</span>
+                <span class="tech-tag">CSS3</span>
+                <span class="tech-tag">JavaScript</span>
+              </div>
+            </div>
+            <div class="project-card-body">
+              <h3 class="project-title">Student Information App</h3>
+              <p class="project-description">
+                A simple student-focused web application designed to organize, calculate, and display academic records and student profiles in an intuitive interface.
+              </p>
+              <div class="project-highlights">
+                <span>&bull; Profile Management</span>
+                <span>&bull; Local Data Handling</span>
+                <span>&bull; Clean Dashboard UI</span>
+              </div>
+            </div>
+            <div class="project-card-footer">
+              <button class="btn btn-sm btn-primary demo-placeholder-btn" data-project="Student Information App">
+                <span>Live Demo</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </button>
+              <a href="https://github.com/YOUR_GITHUB_USERNAME" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-secondary github-link-btn">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                <span>GitHub</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Project 03: Restaurant Website -->
+          <div class="project-card glass-card" data-category="web javascript">
+            <div class="project-card-header">
+              <span class="project-num">03</span>
+              <div class="tech-tags">
+                <span class="tech-tag">HTML5</span>
+                <span class="tech-tag">CSS3</span>
+                <span class="tech-tag">JavaScript</span>
+              </div>
+            </div>
+            <div class="project-card-body">
+              <h3 class="project-title">Restaurant Website</h3>
+              <p class="project-description">
+                A responsive restaurant website featuring dynamic menu filter sections, reservation UI, venue information, and modern mobile layouts.
+              </p>
+              <div class="project-highlights">
+                <span>&bull; Menu Filter System</span>
+                <span>&bull; Responsive Navigation</span>
+                <span>&bull; Interactive Booking Form</span>
+              </div>
+            </div>
+            <div class="project-card-footer">
+              <button class="btn btn-sm btn-primary demo-placeholder-btn" data-project="Restaurant Website">
+                <span>Live Demo</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </button>
+              <a href="https://github.com/YOUR_GITHUB_USERNAME" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-secondary github-link-btn">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                <span>GitHub</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Project 04: AI/ML Learning Project (Coming Soon) -->
+          <div class="project-card glass-card project-card-upcoming" data-category="python ai-ml">
+            <div class="project-card-header">
+              <span class="project-num">04</span>
+              <div class="tech-tags">
+                <span class="tech-tag tag-python">Python</span>
+                <span class="tech-tag tag-ml">Machine Learning</span>
+              </div>
+              <span class="status-badge-chip">Coming Soon</span>
+            </div>
+            <div class="project-card-body">
+              <h3 class="project-title">AI / ML Learning Project</h3>
+              <p class="project-description">
+                A machine learning project developed as part of my journey into artificial intelligence and data-driven problem solving. Currently in research and experimentation phase.
+              </p>
+              <div class="project-highlights">
+                <span>&bull; Data Preprocessing</span>
+                <span>&bull; Predictive Modeling</span>
+                <span>&bull; Model Evaluation</span>
+              </div>
+            </div>
+            <div class="project-card-footer">
+              <button class="btn btn-sm btn-disabled" disabled>
+                <span>Coming Soon</span>
+              </button>
+              <a href="https://github.com/YOUR_GITHUB_USERNAME" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-secondary github-link-btn">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                <span>GitHub</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION SECTION -->
+    <section id="education" class="section education-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Academic Background</span>
+          <h2 class="section-title">Education</h2>
+          <div class="section-divider"></div>
+        </div>
+
+        <div class="education-grid">
+          <!-- Higher Education -->
+          <div class="education-card glass-card">
+            <div class="edu-badge">
+              <span class="badge-status-dot"></span>
+              <span>Undergraduate</span>
+            </div>
+            <div class="edu-dates">2026 &ndash; Present</div>
+            <h3 class="edu-degree">B.Tech &mdash; Computer Science Engineering</h3>
+            <div class="edu-specialization">Specialization: Artificial Intelligence &amp; Machine Learning</div>
+            <div class="edu-institution">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>JECRC University, Jaipur, Rajasthan, India</span>
+            </div>
+            <p class="edu-desc">
+              Currently pursuing undergraduate studies with a focus on computer science, artificial intelligence, machine learning, programming, and software development.
+            </p>
+          </div>
+
+          <!-- School Education (Editable Placeholder) -->
+          <div class="education-card glass-card">
+            <div class="edu-badge edu-badge-school">
+              <span>Higher Secondary</span>
+            </div>
+            <div class="edu-dates">Completed</div>
+            <h3 class="edu-degree">High School Education (ICSE / ISC)</h3>
+            <div class="edu-specialization">Science Stream (Mathematics, Physics, Chemistry, Computer Science)</div>
+            <div class="edu-institution">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>[School Name Placeholder], Kolkata, West Bengal, India</span>
+            </div>
+            <p class="edu-desc">
+              Built strong foundations in mathematics, physical sciences, analytical problem solving, and introductory computer programming.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS & LEARNING SECTION -->
+    <section id="certifications" class="section cert-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Continuous Up-skilling</span>
+          <h2 class="section-title">Certifications &amp; Learning</h2>
+          <p class="section-subtitle">
+            Upcoming certifications and specialized course tracks currently in progress.
+          </p>
+          <div class="section-divider"></div>
+        </div>
+
+        <div class="cert-grid">
+          <!-- Card 1 -->
+          <div class="cert-card glass-card">
+            <div class="cert-header">
+              <span class="cert-icon">&bull;</span>
+              <span class="badge-chip chip-cyan">Coming Soon</span>
+            </div>
+            <h3 class="cert-title">Python for Data Science &amp; AI</h3>
+            <div class="cert-provider">Course Track / Specialization</div>
+            <div class="cert-meta">Target: 2026 &bull; Verified Credential</div>
+            <div class="cert-link-placeholder">Track in progress &rarr;</div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="cert-card glass-card">
+            <div class="cert-header">
+              <span class="cert-icon">&bull;</span>
+              <span class="badge-chip chip-cyan">Coming Soon</span>
+            </div>
+            <h3 class="cert-title">Machine Learning Foundations</h3>
+            <div class="cert-provider">Algorithmic Math &amp; Modeling</div>
+            <div class="cert-meta">Target: 2026 &bull; Practical Hands-on</div>
+            <div class="cert-link-placeholder">Track in progress &rarr;</div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="cert-card glass-card">
+            <div class="cert-header">
+              <span class="cert-icon">&bull;</span>
+              <span class="badge-chip chip-cyan">Coming Soon</span>
+            </div>
+            <h3 class="cert-title">Full-Stack Web Development</h3>
+            <div class="cert-provider">Modern JavaScript &amp; Web Standards</div>
+            <div class="cert-meta">Target: 2026 &bull; Project Based</div>
+            <div class="cert-link-placeholder">Track in progress &rarr;</div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="cert-card glass-card">
+            <div class="cert-header">
+              <span class="cert-icon">&bull;</span>
+              <span class="badge-chip chip-cyan">Coming Soon</span>
+            </div>
+            <h3 class="cert-title">Data Structures &amp; Algorithms</h3>
+            <div class="cert-provider">Core Computer Science Track</div>
+            <div class="cert-meta">Target: 2026 &bull; Problem Solving</div>
+            <div class="cert-link-placeholder">Track in progress &rarr;</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACHIEVEMENTS SECTION -->
+    <section id="achievements" class="section achievements-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Growth &amp; Progress</span>
+          <h2 class="section-title">Achievements &amp; Milestones</h2>
+          <p class="section-subtitle">
+            Notable milestones as I embark on my collegiate and technical journey.
+          </p>
+          <div class="section-divider"></div>
+        </div>
+
+        <div class="achievements-grid">
+          <!-- Initial Milestone -->
+          <div class="achievement-card glass-card active-achievement">
+            <div class="achieve-year">2026</div>
+            <div class="achieve-status-chip">Milestone Achieved</div>
+            <h3 class="achieve-title">Started B.Tech CSE AI &amp; ML</h3>
+            <p class="achieve-desc">
+              Commenced engineering degree in Artificial Intelligence &amp; Machine Learning at JECRC University, Jaipur.
+            </p>
+          </div>
+
+          <!-- Placeholder 1: Hackathons -->
+          <div class="achievement-card glass-card">
+            <div class="achieve-year">Future</div>
+            <div class="achieve-status-chip chip-pending">Coming Soon</div>
+            <h3 class="achieve-title">Hackathons &amp; Smart India Hackathon (SIH)</h3>
+            <p class="achieve-desc">
+              Preparing to collaborate in competitive student hackathons and engineering project hackathons.
+            </p>
+          </div>
+
+          <!-- Placeholder 2: Coding Competitions -->
+          <div class="achievement-card glass-card">
+            <div class="achieve-year">Future</div>
+            <div class="achieve-status-chip chip-pending">Coming Soon</div>
+            <h3 class="achieve-title">Competitive Programming &amp; Contests</h3>
+            <p class="achieve-desc">
+              Sharpening problem solving, logic decomposition, and algorithmic speed.
+            </p>
+          </div>
+
+          <!-- Placeholder 3: Workshops & Tech Events -->
+          <div class="achievement-card glass-card">
+            <div class="achieve-year">Future</div>
+            <div class="achieve-status-chip chip-pending">Coming Soon</div>
+            <h3 class="achieve-title">Workshops &amp; Technical Contributions</h3>
+            <p class="achieve-desc">
+              Participating in developer workshops, technical conferences, and collegiate clubs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CURRENTLY EXPLORING SECTION -->
+    <section class="section exploring-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Active Curiosity</span>
+          <h2 class="section-title">Currently Exploring</h2>
+          <p class="section-subtitle">
+            &ldquo;Every project is an opportunity to learn something new.&rdquo;
+          </p>
+          <div class="section-divider"></div>
+        </div>
+
+        <div class="exploring-grid">
+          <div class="exploring-card glass-card">
+            <div class="explore-emoji">🐍</div>
+            <h3 class="explore-title">Python</h3>
+            <p class="explore-text">Writing clean scripts, understanding data libraries, and logic structures.</p>
+          </div>
+
+          <div class="exploring-card glass-card">
+            <div class="explore-emoji">🤖</div>
+            <h3 class="explore-title">Artificial Intelligence</h3>
+            <p class="explore-text">Exploring intelligence agents, heuristic search, and mathematical foundations.</p>
+          </div>
+
+          <div class="exploring-card glass-card">
+            <div class="explore-emoji">🧠</div>
+            <h3 class="explore-title">Machine Learning</h3>
+            <p class="explore-text">Understanding regression, classification algorithms, and feature representations.</p>
+          </div>
+
+          <div class="exploring-card glass-card">
+            <div class="explore-emoji">💻</div>
+            <h3 class="explore-title">Data Structures</h3>
+            <p class="explore-text">Implementing arrays, linked lists, stacks, queues, and sorting methods.</p>
+          </div>
+
+          <div class="exploring-card glass-card">
+            <div class="explore-emoji">🌐</div>
+            <h3 class="explore-title">Web Development</h3>
+            <p class="explore-text">Crafting accessible, lightweight, modern web applications from scratch.</p>
+          </div>
+
+          <div class="exploring-card glass-card">
+            <div class="explore-emoji">⚙️</div>
+            <h3 class="explore-title">Git &amp; GitHub</h3>
+            <p class="explore-text">Practicing version control, commits, and collaborative open-source workflows.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GOALS SECTION -->
+    <section class="section goals-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Trajectory</span>
+          <h2 class="section-title">What I'm Working Toward</h2>
+          <p class="section-subtitle">A progressive roadmap structuring my academic and technical aspirations.</p>
+          <div class="section-divider"></div>
+        </div>
+
+        <div class="goals-container">
+          <div class="goal-card glass-card">
+            <div class="goal-phase">Phase 01</div>
+            <h3 class="goal-title">Short-Term</h3>
+            <div class="goal-timeframe">Current College Semester</div>
+            <p class="goal-desc">
+              Build rock-solid programming fundamentals in Python, C, and JavaScript. Complete clean practical web projects and establish disciplined problem-solving habits.
+            </p>
+            <div class="goal-indicator-bar"><span class="bar-fill fill-75"></span></div>
+          </div>
+
+          <div class="goal-connector">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </div>
+
+          <div class="goal-card glass-card">
+            <div class="goal-phase">Phase 02</div>
+            <h3 class="goal-title">Mid-Term</h3>
+            <div class="goal-timeframe">Intermediate Years</div>
+            <p class="goal-desc">
+              Become proficient in Data Structures &amp; Algorithms, Python for Machine Learning, database systems, Git/GitHub collaboration, and participating in hackathons.
+            </p>
+            <div class="goal-indicator-bar"><span class="bar-fill fill-40"></span></div>
+          </div>
+
+          <div class="goal-connector">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </div>
+
+          <div class="goal-card glass-card">
+            <div class="goal-phase">Phase 03</div>
+            <h3 class="goal-title">Long-Term</h3>
+            <div class="goal-timeframe">Graduation &amp; Career</div>
+            <p class="goal-desc">
+              Build real-world AI-powered applications and grow into a skilled software engineer / AI &amp; ML developer capable of shipping production-grade solutions.
+            </p>
+            <div class="goal-indicator-bar"><span class="bar-fill fill-20"></span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GITHUB SECTION -->
+    <section class="section github-section">
+      <div class="container">
+        <div class="github-box glass-card">
+          <div class="github-info">
+            <span class="section-badge">Open Source &amp; Code</span>
+            <h2 class="github-heading">Code. Build. Learn. Repeat.</h2>
+            <p class="github-subtext">
+              "Most of my learning happens through experimentation, projects, and code."
+            </p>
+            <div class="github-user-card">
+              <div class="github-avatar-placeholder">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+              </div>
+              <div class="github-details">
+                <div class="github-name" id="githubNameDisplay">Avinandan Biswas</div>
+                <div class="github-username" id="githubUsernameDisplay">@YOUR_GITHUB_USERNAME</div>
+              </div>
+            </div>
+            <div class="github-actions">
+              <a href="https://github.com/YOUR_GITHUB_USERNAME" id="githubProfileBtn" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                <span>GitHub Profile</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+              <a href="https://github.com/YOUR_GITHUB_USERNAME?tab=repositories" id="githubReposBtn" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                <span>View Repositories</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="section contact-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Get In Touch</span>
+          <h2 class="section-title">Let's Build Something Together</h2>
+          <p class="section-subtitle">
+            Whether it's a project idea, collaboration, hackathon, or simply a conversation about technology, feel free to reach out.
+          </p>
+          <div class="section-divider"></div>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Left: Contact Information Cards -->
+          <div class="contact-cards-column">
+            <!-- Email Card -->
+            <div class="contact-card glass-card">
+              <div class="contact-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div class="contact-info">
+                <span class="contact-label">Email</span>
+                <a href="mailto:YOUR_EMAIL@example.com" id="contactEmailLink" class="contact-value">YOUR_EMAIL@example.com</a>
+              </div>
+              <button id="copyEmailBtn" class="copy-btn" title="Copy email address" aria-label="Copy email address">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              </button>
+            </div>
+
+            <!-- LinkedIn Card -->
+            <div class="contact-card glass-card">
+              <div class="contact-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.22a1.6 1.6 0 1 0 0 3.2 1.6 1.6 0 0 0 0-3.2z"/></svg>
+              </div>
+              <div class="contact-info">
+                <span class="contact-label">LinkedIn</span>
+                <a href="https://linkedin.com/in/YOUR_LINKEDIN_URL" id="contactLinkedInLink" target="_blank" rel="noopener noreferrer" class="contact-value">linkedin.com/in/YOUR_LINKEDIN_URL</a>
+              </div>
+            </div>
+
+            <!-- GitHub Card -->
+            <div class="contact-card glass-card">
+              <div class="contact-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+              </div>
+              <div class="contact-info">
+                <span class="contact-label">GitHub</span>
+                <a href="https://github.com/YOUR_GITHUB_USERNAME" id="contactGitHubLink" target="_blank" rel="noopener noreferrer" class="contact-value">github.com/YOUR_GITHUB_USERNAME</a>
+              </div>
+            </div>
+
+            <!-- Location Card -->
+            <div class="contact-card glass-card">
+              <div class="contact-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div class="contact-info">
+                <span class="contact-label">Location</span>
+                <span class="contact-value-static">Jaipur, Rajasthan, India</span>
+                <span class="contact-subtext">Hometown: Kolkata, West Bengal</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Contact Form -->
+          <div class="contact-form-container glass-card">
+            <h3 class="form-title">Send a Message</h3>
+            <p class="form-desc">Have a question or collaboration proposal? Fill out the form below.</p>
+            
+            <form id="contactForm" class="contact-form" novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="formName">Your Name <span class="required">*</span></label>
+                  <input type="text" id="formName" name="name" class="form-input" placeholder="e.g. Alex Morgan" required>
+                  <span class="input-error" id="nameError">Please enter your name.</span>
+                </div>
+
+                <div class="form-group">
+                  <label for="formEmail">Email Address <span class="required">*</span></label>
+                  <input type="email" id="formEmail" name="email" class="form-input" placeholder="e.g. alex@example.com" required>
+                  <span class="input-error" id="emailError">Please enter a valid email address.</span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="formSubject">Subject <span class="required">*</span></label>
+                <input type="text" id="formSubject" name="subject" class="form-input" placeholder="e.g. Hackathon Project Collaboration" required>
+                <span class="input-error" id="subjectError">Please enter a subject.</span>
+              </div>
+
+              <div class="form-group">
+                <label for="formMessage">Message <span class="required">*</span></label>
+                <textarea id="formMessage" name="message" rows="5" class="form-input form-textarea" placeholder="Write your message here..." required></textarea>
+                <span class="input-error" id="messageError">Please enter your message (min 10 characters).</span>
+              </div>
+
+              <div class="form-backend-note">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                <span>Frontend demonstration mode with validation. Connect EmailJS or Formspree in script.js.</span>
+              </div>
+
+              <button type="submit" id="submitBtn" class="btn btn-primary btn-block">
+                <span>Send Message</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#hero" class="logo">
+            <span class="logo-accent">AB</span><span class="logo-dot">.</span>
+          </a>
+          <p class="footer-author">Avinandan Biswas</p>
+          <p class="footer-tagline">B.Tech CSE AI &amp; ML Student | JECRC University, Jaipur</p>
+        </div>
+
+        <div class="footer-nav">
+          <div class="footer-nav-title">Navigation</div>
+          <ul class="footer-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-socials">
+          <div class="footer-nav-title">Connect</div>
+          <div class="social-icons-row">
+            <a href="https://github.com/YOUR_GITHUB_USERNAME" id="footerGitHub" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="GitHub">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            </a>
+            <a href="https://linkedin.com/in/YOUR_LINKEDIN_URL" id="footerLinkedIn" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="LinkedIn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.22a1.6 1.6 0 1 0 0 3.2 1.6 1.6 0 0 0 0-3.2z"/></svg>
+            </a>
+            <a href="mailto:YOUR_EMAIL@example.com" id="footerEmail" class="social-icon-btn" aria-label="Email">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-copyright">
+          &copy; 2026 Avinandan Biswas. Built with HTML, CSS &amp; Vanilla JavaScript.
+        </div>
+        <button id="backToTopBtn" class="back-to-top" aria-label="Back to top of page">
+          <span>Back to top</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Main JavaScript File -->
+  <script src="script.js"></script>
+</body>
+</html>
